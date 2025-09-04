@@ -426,124 +426,63 @@
       item.classList.toggle('active');
     });
   });
-
-  // Add event listener to update WhatsApp link dynamically
-  const form = document.getElementById('whatsappForm');
-  const quantityInput = document.getElementById('quantity');
-  const whatsappButton = document.querySelector('.form-button');
-
-  function updateWhatsAppLink() {
-    const name = document.getElementById('name').value || 'Not provided';
-    const email = document.getElementById('email').value || 'Not provided';
-    const phone = document.getElementById('phone').value || 'Not provided';
-    const quantity = quantityInput.value || '1';
-
-    const message = encodeURIComponent(
-      `Hello! I want to secure my order for the *ELM Scanner*.\n\n` +
-      `*Full Name:* ${name}\n` +
-      `*Email:* ${email}\n` +
-      `*Phone:* ${phone}\n` +
-      `*Preferred Quantity:* ${quantity}\n` +
-      `*Delivery Location:* Please deliver to my address.\n` +
-      `*Additional Note:* Kindly confirm availability and delivery time.`
-    );
-
-    whatsappButton.setAttribute('href', `https://wa.me/2348136401549?text=${message}`);
-  }
-
-  // Update link when quantity changes
-  quantityInput.addEventListener('input', updateWhatsAppLink);
-
-  // Update link when form is submitted
-  form.addEventListener('submit', (e) => {
-    e.preventDefault(); // Prevent default form submission
-    updateWhatsAppLink();
-    window.open(whatsappButton.href, '_blank'); // Open WhatsApp link in new tab
-  });
 </script>
 
-<style>
-  .btn-whatsapp {
-    display: inline-flex;
-    align-items: center;
-    gap: .6rem;
-    background: #25D366;
-    color: #fff;
-    text-decoration: none;
-    padding: .9rem 1.2rem;
-    border-radius: 999px;
-    font-weight: 700;
-    box-shadow: 0 8px 20px rgba(37, 211, 102, .25);
-    transition: transform .15s ease, box-shadow .2s ease;
-  }
-  .btn-whatsapp i {
-    font-size: 1.2rem;
-  }
-  .btn-whatsapp:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 10px 24px rgba(37, 211, 102, .35);
-  }
 
-  .whatsapp-float {
-    position: fixed;
-    right: 18px;
-    bottom: 18px;
-    z-index: 9999;
-    width: 58px;
-    height: 58px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #25D366;
-    color: #fff;
-    text-decoration: none;
-    box-shadow: 0 10px 24px rgba(37, 211, 102, .35);
-    transition: transform .15s ease, box-shadow .2s ease;
+<style>
+  .btn-whatsapp{
+    display:inline-flex;align-items:center;gap:.6rem;
+    background:#25D366;color:#fff;text-decoration:none;
+    padding:.9rem 1.2rem;border-radius:999px;font-weight:700;
+    box-shadow:0 8px 20px rgba(37,211,102,.25);transition:transform .15s ease, box-shadow .2s ease;
   }
-  .whatsapp-float i {
-    font-size: 1.6rem;
-    line-height: 1;
+  .btn-whatsapp i{font-size:1.2rem}
+  .btn-whatsapp:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(37,211,102,.35)}
+
+  .whatsapp-float{
+    position:fixed;right:18px;bottom:18px;z-index:9999;
+    width:58px;height:58px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    background:#25D366;color:#fff;text-decoration:none;
+    box-shadow:0 10px 24px rgba(37,211,102,.35);
+    transition:transform .15s ease, box-shadow .2s ease;
   }
-  .whatsapp-float:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 14px 28px rgba(37, 211, 102, .45);
-  }
+  .whatsapp-float i{font-size:1.6rem;line-height:1}
+  .whatsapp-float:hover{transform:translateY(-2px);box-shadow:0 14px 28px rgba(37,211,102,.45)}
 </style>
 
 <img src="Descargar logo entrega gratis con mensajero gratis.jpeg" alt="" width="100%" height="100%">
 
 <section class="form-section" id="form-section">
-  <div class="container">
-    <h2>Claim Your ELM Scanner Today</h2>
-    <p>Fill out the form below to secure your order and take control of your car health.</p>
-    <div class="form-container">
-      <h3>Order Now</h3>
-      <form id="whatsappForm">
-        <div class="form-group">
-          <label for="name">Full Name</label>
-          <input type="text" id="name" name="name" placeholder="Enter your full name" required>
-        </div>
-        <div class="form-group">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" placeholder="Enter your email address" required>
-        </div>
-        <div class="form-group">
-          <label for="phone">Phone Number (Optional)</label>
-          <input type="tel" id="phone" name="phone" placeholder="e.g., +234 801 234 5678">
-        </div>
-        <div class="form-group">
-          <label for="quantity">Quantity</label>
-          <input type="number" id="quantity" name="quantity" value="1" min="1" required>
-        </div>
-        <!-- WhatsApp Button -->
-        <a href="#" target="_blank" class="form-button btn-whatsapp">
-          Submit & Secure My Order
-        </a>
-      </form>
-    </div>
-  </div>
-</section>
+    <div class="container">
+        <h2>Claim Your ELM Scanner Today</h2>
+        <p>Fill out the form below to secure your order and take control of your car health.</p>
+        <div class="form-container">
+            <h3>Order Now</h3>
+            <form id="whatsappForm">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number (Optional)</label>
+                    <input type="tel" id="phone" name="phone" placeholder="e.g., +234 801 234 5678">
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Quantity</label>
+                    <input type="number" id="quantity" name="quantity" value="1" min="1" required>
+                </div>
+                <!-- WhatsApp Button -->
+                <a href="https://wa.me/2348136401549?text=Hello!%20I%20want%20to%20secure%20my%20order%20for%20the%20*ELM%20Scanner*.%0A%0A*Preferred%20Quantity:*%201%0A*Delivery%20Location:*%20Please%20deliver%20to%20my%20address.%0A*Additional%20Note:*%20Kindly%20confirm%20availability%20and%20delivery%20time." 
+                   target="_blank" 
+                   class="form-button">
+                   Submit & Secure My Order
+                </a>
+            </form>
         </div>
     </div>
 </section>
