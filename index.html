@@ -429,7 +429,6 @@
 
   // Handle form submission and redirect to WhatsApp
   const form = document.getElementById('whatsappForm');
-  const whatsappButton = document.querySelector('.form-button');
 
   form.addEventListener('submit', (e) => {
     e.preventDefault(); // Prevent default form submission
@@ -450,7 +449,15 @@
     );
 
     const whatsappUrl = `https://wa.me/2348136401549?text=${message}`;
-    window.open(whatsappUrl, '_blank'); // Redirect to WhatsApp in a new tab
+    // Fallback for mobile: try 'whatsapp://' if 'https://wa.me' fails
+    const fallbackUrl = `whatsapp://send?phone=2348136401549&text=${message}`;
+    
+    // Attempt to open WhatsApp directly; if it fails, use the fallback
+    try {
+      window.location.href = whatsappUrl; // Direct redirect for better mobile compatibility
+    } catch (error) {
+      window.location.href = fallbackUrl; // Fallback to native WhatsApp scheme
+    }
   });
 </script>
 
